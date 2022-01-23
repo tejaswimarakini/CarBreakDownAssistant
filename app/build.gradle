@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    //id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
 }
@@ -10,6 +10,10 @@ android {
     compileSdk 31
 
     defaultConfig {
+        buildConfigField("String", "MAPS_API_KEY", "\"yI3CKJUYF7hSDtzEzabjDip3fcba4EMA\"")
+        buildConfigField("String", "ROUTING_API_KEY", "\"yI3CKJUYF7hSDtzEzabjDip3fcba4EMA\"")
+        buildConfigField("String", "SEARCH_API_KEY", "\"yI3CKJUYF7hSDtzEzabjDip3fcba4EMA\"")
+
         applicationId "com.android.carhelper"
         minSdk 26
         targetSdk 31
@@ -20,6 +24,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+
     }
 
     buildTypes {
@@ -49,6 +55,8 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+
 }
 
 dependencies {
@@ -74,4 +82,40 @@ dependencies {
     //hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
+
+    /*//location provider
+    implementation 'com.google.android.gms:play-services-location:18.0.0'*/
+
+
+    //TomTom dependencies
+
+    //library required to display map
+    implementation("com.tomtom.online:sdk-maps:2.4807")
+
+    //library required for search
+    implementation("com.tomtom.online:sdk-search:2.4807")
+
+    //library required for routing
+    implementation("com.tomtom.online:sdk-routing:2.4807")
+
+    //library required for traffic
+    implementation("com.tomtom.online:sdk-traffic:2.4807")
+
+    //library required for geofencing
+    implementation("com.tomtom.online:sdk-geofencing:2.4807")
+
+    //Extension library for map custom style and ui support
+    implementation("com.tomtom.online:sdk-maps-ui-extensions:2.4807")
+
+    //Extension library for rx-java2
+    implementation("com.tomtom.online:sdk-maps-rx-extensions:2.4807")
+
+    //Extension library for kotlin support
+    implementation("com.tomtom.online:sdk-maps-ktx-extensions:2.4807")
+
+    //Extension library for displaying static map
+    implementation("com.tomtom.online:sdk-maps-static-image:2.4807")
+
+    //Extension library for driving features
+    implementation("com.tomtom.online:sdk-maps-driving-extensions:2.4807")
 }
