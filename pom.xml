@@ -17,6 +17,11 @@
             <version>4.1.1.4</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.sonatype.aether</groupId>
+            <artifactId>aether-api</artifactId>
+            <version>1.13.1</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
